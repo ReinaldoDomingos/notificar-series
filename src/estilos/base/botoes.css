@@ -1,0 +1,16 @@
+.btn-voltar {
+    display: grid;
+    grid-template-columns: 30px 50px;
+    align-items: center;
+    font-size: 15px;
+    color: grey;
+}
+
+.btn-voltar:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+.btn-gerar .btn-success {
+    margin-top: 0 !important;
+}

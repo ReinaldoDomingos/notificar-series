@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificações séries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script data-main="visualizar" src="node_modules/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="app" class="conteudo mx-5 tab-content">
+    <div v-if="serie" class="caixa">
+        <div class="row cabecalho-serie">
+            <div class="col-3">
+                <img v-bind:src="serie.urlImg" alt="">
+            </div>
+            <div class="col-8">
+                <h1>{{ serie.name }} ({{ serie.first_air_date | getAnoData }})</h1>
+            </div>
+        </div>
+        <div class="lista-colapse">
+            <div class="item-colapse" v-for="temporada in serie.seasons">
+                <div class="titulo-colapse">
+                    {{ temporada.name }} ({{ temporada.air_date | getAnoData }})
+                    <span style="float: right;" @click="buscarTemporadaSerie(temporada)">
+                        <i v-if="!temporada.visualizando" class="material-icons">expand_more</i>
+                        <i v-if="temporada.visualizando" class="material-icons">expand_less</i>
+                    </span>
+                </div>
+                <div v-if="temporadaSelecionada === temporada.id" class="lista-colapse conteudo-colapse">
+                    <div class="item-colapse" v-for="episodio in episodios">
+                        {{ episodio.name }} - {{ episodio.air_date | getDataFormatada }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

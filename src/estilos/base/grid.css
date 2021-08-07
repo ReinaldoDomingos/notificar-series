@@ -1,0 +1,9 @@
+@import "paginacao.css";
+
+.grid .caixa-de-selecao {
+    padding-left: 0;
+}
+
+.grid .caixa-de-numero {
+    padding: 0;
+}

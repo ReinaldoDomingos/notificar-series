@@ -1,0 +1,40 @@
+.lista-colapse {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item-colapse {
+    background-color: #2b2626;
+    border-bottom: 1px solid grey;
+    border-radius: 5px;
+    color: white;
+    padding: 0;
+}
+
+.item-colapse:hover {
+    background-color: #3c3a3a;
+    border-radius: 5px;
+    color: white;
+}
+
+.titulo-colapse {
+    padding: 10px;
+}
+
+.conteudo-colapse {
+    background-color: white;
+    color: black;
+}
+
+.conteudo-colapse .item-colapse {
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    background: white;
+    padding: 5px 10px;
+    color: black;
+}
+
+.conteudo-colapse .item-colapse:hover {
+    background-color: #e6e6e6;
+}

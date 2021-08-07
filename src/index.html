@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificações séries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script data-main="app" src="node_modules/requirejs/require.js"></script>
+</head>
+<body>
+
+<div id="app" class="conteudo mx-5 tab-content">
+    <div class="search justify-content-center">
+        <div class="col-lg-5 col-11 p-0 mx-auto">
+            <input type="search"
+                   @keydown="($event.which ===13 && buscarFilmesOuSeries())"
+                   class="form-control float-start" v-model="busca"/>
+            <button class="btn btn-dark float-end" @click="buscarFilmesOuSeries()">
+                <i class="material-icons">search</i>
+            </button>
+        </div>
+    </div>
+    <grid :lista="lista" :atributos="colunas" :funcao="buscarFilmesOuSeries"
+          :funcao-clique="visualizar"></grid>
+</div>
+</body>
+</html>

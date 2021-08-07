@@ -1,0 +1,21 @@
+.paginacao {
+    text-align: center;
+}
+
+.paginacao .contagem {
+    float: right;
+}
+
+.pagination {
+    float: left;
+}
+
+.page-item .page-link {
+    border: none;
+    color: black;
+}
+
+.page-item.active .page-link {
+    background-color: grey;
+    border-radius: 50%;
+}
