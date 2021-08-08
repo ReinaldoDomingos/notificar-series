@@ -7,3 +7,7 @@
 .grid .caixa-de-numero {
     padding: 0;
 }
+
+.grid .table-responsive-xl {
+    overflow: inherit;
+}

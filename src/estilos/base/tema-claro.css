@@ -1,3 +1,4 @@
+@import "bloquear-selecao.css";
 @import "navbar.css";
 @import "botoes.css";
 @import "caixa.css";
@@ -7,6 +8,7 @@
 @import "table.css";
 @import "colapse.css";
 @import "search.css";
+@import "fonts.css";
 
 body {
     background-color: #f9f9f9 !important

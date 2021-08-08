@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Notificações séries</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilo.css">
-    <script src="node_modules/vue/dist/vue.min.js"></script>
-    <script src="node_modules/axios/dist/axios.min.js"></script>
-    <script data-main="visualizar" src="node_modules/requirejs/require.js"></script>
+    <script src="../node_modules/vue/dist/vue.min.js"></script>
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script data-main="visualizar" src="../node_modules/requirejs/require.js"></script>
 </head>
 <body>
 
 <div id="app" class="conteudo mx-5 tab-content">
+    <botao-voltar :funcao="voltar"></botao-voltar>
     <div v-if="serie" class="caixa">
         <div class="row cabecalho-serie">
-            <div class="col-3">
-                <img v-bind:src="serie.urlImg" alt="">
+            <div class="col-3 col-sm-2 col-lg-1 p-0">
+                <img width="100" v-bind:src="serie.urlImg" v-bind:alt="serie.titulo" class="imagem"/>
             </div>
             <div class="col-8">
-                <h1>{{ serie.name }} ({{ serie.first_air_date | getAnoData }})</h1>
+                <h1 class="titulo-principal">{{ serie.titulo }} ({{ serie.dataInicial | getAnoData }})</h1>
+
+                <span class="badge bg-secondary m-1" v-for="genero in serie.genres">{{genero.name}}</span>
             </div>
         </div>
         <div class="lista-colapse">

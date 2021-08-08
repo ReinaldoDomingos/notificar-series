@@ -1,4 +1,4 @@
-define(['../../utils/data-utils', '../../js/themoviedb-api', '../../components/grid'],
+define(['../../utils/data-utils', '../../extensao/themoviedb-api', '../../lib/grid'],
     function (dataUtils, themoviedbApi) {
 
         new Vue({
@@ -14,7 +14,7 @@ define(['../../utils/data-utils', '../../js/themoviedb-api', '../../components/g
             },
             methods: {
                 visualizar(item) {
-                    location.href = 'visualizarSerie.html?id=' + item.id;
+                    location.href = 'visualizarSerie.html?id=' + item.id + '&tipo=' + item.media_type;
                 },
                 async buscarFilmesOuSeries(pagina) {
                     if (!this.busca) return;

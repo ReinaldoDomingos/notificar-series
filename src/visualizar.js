@@ -1,7 +1,7 @@
 requirejs.config({
     baseUrl: 'lib',
     paths: {
-        visualizar: '../components/visualizar'
+        visualizar: '../componentes/visualizar'
     }
 });
 

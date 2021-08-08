@@ -1,0 +1,21 @@
+.titulo-principal {
+    font-size: 30px;
+}
+
+.imagem {
+    width: auto;
+    max-width: 100%;
+    min-width: 50%;
+}
+
+@media screen and (min-width: 600px) {
+    .imagem {
+        max-width: max-content;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .titulo-principal {
+        font-size: 20px;
+    }
+}

@@ -1,4 +1,4 @@
-define(['../../utils/api-utils', '../../js/themoviedb-api', '../../utils/data-utils', '../../filters/filters'],
+define(['../../utils/api-utils', '../../extensao/themoviedb-api', '../../utils/data-utils', '../../filters/filters','../../lib/buttons'],
     function (apiUtils, themoviedbApi, dataUtils) {
 
         new Vue({
@@ -10,9 +10,12 @@ define(['../../utils/api-utils', '../../js/themoviedb-api', '../../utils/data-ut
                 temporadaSelecionada: null
             },
             async mounted() {
-                await this.buscarSerie();
+                await this.buscarSerieOuFilme();
             },
             methods: {
+                voltar() {
+                    location.href = '.';
+                },
                 async buscarTemporadaSerie(temporada) {
                     if (this.temporadaSelecionada === temporada.id) {
                         this.episodios = []
@@ -25,10 +28,12 @@ define(['../../utils/api-utils', '../../js/themoviedb-api', '../../utils/data-ut
                         this.episodios = resposta.data.episodes;
                     }
                 },
-                async buscarSerie() {
-                    const resposta = await themoviedbApi.buscarSerie(this.filters.id);
+                async buscarSerieOuFilme() {
+                    const resposta = await themoviedbApi.buscarSerieOuFilme(this.filters.id, this.filters.tipo);
                     this.serie = resposta.data;
                     themoviedbApi.formatarItem(this.serie);
+
+                    this.serie.titulo = this.serie.name ? this.serie.name : this.serie.title;
                 }
             }
         });

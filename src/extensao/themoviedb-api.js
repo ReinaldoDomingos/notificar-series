@@ -34,8 +34,8 @@ define(function () {
 
             return await axios.get(this.criarURL(caminho, parametros));
         },
-        buscarSerie: async function (id, page) {
-            let caminho = 'tv/' + id;
+        buscarSerieOuFilme: async function (id, tipo, page) {
+            let caminho = tipo + '/' + id;
             let parametros = [];
 
             if (page) {
@@ -62,9 +62,11 @@ define(function () {
             return null;
         },
         formatarItem: function (item) {
-            // if (item.first_air_date) {
-            // } else if (item.release_date) {
-            // }
+            if (item.first_air_date) {
+                item.dataInicial = item.first_air_date;
+            } else if (item.release_date) {
+                item.dataInicial = item.release_date;
+            }
 
             item.urlImg = this.getURLImagem(item.poster_path)
         }

@@ -1,8 +1,9 @@
 .btn-voltar {
-    display: grid;
     grid-template-columns: 30px 50px;
+    text-decoration: none;
     align-items: center;
     font-size: 15px;
+    display: grid;
     color: grey;
 }
 
